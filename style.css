@@ -8,7 +8,7 @@
 }
 
 
-.content {
+.dinput {
     display: flex;
 
     margin: 150px 40px 40px 40px;
@@ -26,7 +26,36 @@
 }
 
 .input-area {
-    margin-left: 20px;
-    margin-right: 20px;
-
+    margin-left: 30px;
+    
 }
+
+#club-bar{
+    width: 195px;
+}
+#country-bar{
+    width: 195px;
+}#position-bar{
+    width: 195px;
+}
+
+
+.player-input{
+    display: inline-flex;
+    margin-left: 800px;
+}
+
+#guesses-box{
+    width: 20px;
+    height: 20px;
+    border: 1px solid black;
+    margin-left: 20px;
+}
+
+#guess-num{
+    width: 10px;
+    height: 10px;
+    margin-left: 6px;
+    margin-top: 2px;;
+}
+    
