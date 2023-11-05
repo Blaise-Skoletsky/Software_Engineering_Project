@@ -22,12 +22,12 @@ inputPlayer.addEventListener("keyup", function (event){
 
 
 inputClub.addEventListener("keyup", function(event){
-    if(event.keyCode == 13){
-        var  countryBox3 = document.getElementById("clubbox3")
-
-
-    }
-
+    if(event.keyCode != 13){
+        return
+    }  
+    var  countryBox3 = document.getElementById("clubbox3")
+        // if the third box is either green, yellow or red already, don't do anything
+        // Else, run code.
 
 
 })
