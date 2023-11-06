@@ -23,6 +23,7 @@
     width: 200px;
     height: 40px;
     margin: 30px;
+    background-color: white;
 }
 
 .input-area {
@@ -59,3 +60,22 @@
     margin-top: 1px;;
 }
     
+
+#winnerPage{
+    background-color: green;
+    position: absolute;
+    height: 800px;
+    width: 850px;
+    top: 10%;
+    left: 30%;
+    border: 1px solid black;
+    border-radius: 4%;
+}
+
+.hidden{
+    visibility: hidden;
+}
+
+#clubbox3  {
+    background-color: green;
+}
