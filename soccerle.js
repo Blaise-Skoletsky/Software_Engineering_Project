@@ -30,10 +30,15 @@ inputClub.addEventListener("keyup", function(event){
         return
     }
 
-    if (clubBox3.style.backgroundColor === 'green' || clubBox3.style.backgroundColor === 'red' ||clubBox3.style.backgroundColor === 'yellow'){
-        inputClub.value = ''
-        console.log('box is colored')
-        return
+    clubboxArr = document.getElementsByClassName('clubox')
+    for (var i = 0; i < clubboxArr.length; i++){
+        if (clubboxArr[i].style.backgroundColor === 'green' || clubboxArr[i].style.backgroundColor === 'red' || clubboxArr[i].style.backgroundColor === 'yellow'){
+            continue
+        }
+        
+        //DO stuff to change the thing now based on the name.
+
+
     }
     
     inputClub.value = ''
