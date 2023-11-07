@@ -18,6 +18,23 @@ inputPlayer.addEventListener("keyup", function (event){
         playerGuess = inputPlayer.value
         inputPlayer.value=''
         boxNum.textContent = parseInt(boxNum.textContent) - 1
+        var endgame = document.getElementById('endgame-page')
+        
+        if (playerGuess === 'harry kane'){
+            endgame.classList.toggle('hidden')
+            document.getElementById('endmessage').textContent = 'You Win!'
+            return
+        }
+
+
+        if (boxNum.textContent === '0'){
+    
+            endgame.classList.toggle('hidden')
+            document.getElementById('endmessage').textContent = 'You Lose!'
+            return
+            
+        
+        }
         
     
     }
@@ -117,4 +134,24 @@ removebutton.addEventListener('click', function(){
     helpbutton.classList.toggle('hidden')
 
     
+})
+
+
+resbutton = document.getElementById('restart')
+resbutton.addEventListener('click', function(){
+    playerGuess = 0
+
+    for (let i = 0; i < clubboxArr.length; i++){
+        clubboxArr[i].style.backgroundColor = 'white'
+        positionboxArr[i].style.backgroundColor = 'white'
+        countryboxArr[i].style.backgroundColor = 'white'
+    }
+    var boxNum = document.getElementById('guess-num')
+    boxNum.textContent = 3
+
+    var endgame = document.getElementById('endgame-page')
+    endgame.classList.toggle('hidden')
+
+
+
 })
