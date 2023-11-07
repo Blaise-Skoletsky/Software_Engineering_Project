@@ -74,3 +74,47 @@ inputPosition.addEventListener("keyup", function(event){
 
 })
 
+inputCountry.addEventListener("keyup", function(event){
+    if(event.keyCode != 13){
+        return
+    }
+
+    for (var i = 0; i < countryboxArr.length; i++){
+        if (countryboxArr[i].style.backgroundColor === 'green' || countryboxArr[i].style.backgroundColor === 'red' || countryboxArr[i].style.backgroundColor === 'yellow'){
+            continue
+        }
+        
+        //DO stuff to change the thing now based on the name.
+        
+        if (inputCountry.value === 'tottenham'){
+            countryboxArr[i].style.backgroundColor = 'green'
+            break
+        }
+        
+
+    }
+    
+    inputCountry.value = ''
+
+
+})
+
+
+var helpbutton = document.getElementById('helpbutton')
+var removebutton = document.getElementById('removepage')
+helpbutton.addEventListener('click', function(){
+    helpbutton.classList.toggle('hidden')
+    var helppage = document.getElementById('questionpage')
+    helppage.classList.toggle('hidden')
+
+    
+
+})
+
+removebutton.addEventListener('click', function(){
+    var helppage = document.getElementById('questionpage')
+    helppage.classList.toggle('hidden')
+    helpbutton.classList.toggle('hidden')
+
+    
+})

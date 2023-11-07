@@ -79,3 +79,28 @@
 .clubox {
     background-color: white;
 }
+
+#questionpage {
+    position: absolute;
+    height: 40px;
+    width: 700px;
+    right: 0px;
+    top: 0px;
+}
+
+#helpbutton{
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    right: 10%;
+    top: 10%;
+}
+
+#removepage {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 10%;
+    top: 30%;
+    
+}
