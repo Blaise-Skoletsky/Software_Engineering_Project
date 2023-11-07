@@ -3,10 +3,9 @@ var inputPlayer = document.getElementById("player-box")
 var inputClub = document.getElementById("club-bar")
 var inputPosition = document.getElementById("position-bar")
 var inputCountry = document.getElementById("country-bar")
-
-var clubBox3 = document.getElementById("clubbox3")
-clubBox3.style.backgroundColor = 'white'
-
+var clubboxArr = document.getElementsByClassName('clubox')
+var positionboxArr = document.getElementsByClassName('posbox')
+var countryboxArr = document.getElementsByClassName('coubox')
 
 var playerGuess = 0
 
@@ -30,14 +29,18 @@ inputClub.addEventListener("keyup", function(event){
         return
     }
 
-    clubboxArr = document.getElementsByClassName('clubox')
     for (var i = 0; i < clubboxArr.length; i++){
         if (clubboxArr[i].style.backgroundColor === 'green' || clubboxArr[i].style.backgroundColor === 'red' || clubboxArr[i].style.backgroundColor === 'yellow'){
             continue
         }
         
         //DO stuff to change the thing now based on the name.
-
+        
+        if (inputClub.value === 'tottenham'){
+            clubboxArr[i].style.backgroundColor = 'green'
+            break
+        }
+        
 
     }
     
@@ -45,3 +48,29 @@ inputClub.addEventListener("keyup", function(event){
 
 
 })
+
+inputPosition.addEventListener("keyup", function(event){
+    if(event.keyCode != 13){
+        return
+    }
+
+    for (var i = 0; i < positionboxArr.length; i++){
+        if (positionboxArr[i].style.backgroundColor === 'green' || positionboxArr[i].style.backgroundColor === 'red' || positionboxArr[i].style.backgroundColor === 'yellow'){
+            continue
+        }
+        
+        //DO stuff to change the thing now based on the name.
+        
+        if (inputPosition.value === 'tottenham'){
+            positionboxArr[i].style.backgroundColor = 'green'
+            break
+        }
+        
+
+    }
+    
+    inputPosition.value = ''
+
+
+})
+
