@@ -10,6 +10,20 @@ var countryboxArr = document.getElementsByClassName('coubox')
 var playerGuess = 0
 
 
+//
+class PlayerInfo {
+    constructor(name, country, club, position){
+        self.name = name
+        self.country = country
+        self.club = club
+        self.position = position
+    }
+}
+
+
+
+
+
 inputPlayer.addEventListener("keyup", function (event){
     var boxNum = document.getElementById('guess-num')
 
