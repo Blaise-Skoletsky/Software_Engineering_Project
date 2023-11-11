@@ -82,10 +82,12 @@
 
 #questionpage {
     position: absolute;
-    height: 40px;
-    width: 700px;
+    height: 180px;
+    width: 100%;
     right: 0px;
     top: 0px;
+    background-color: rgb(214, 203, 203);
+    font-size: 18px;
 }
 
 #helpbutton{
@@ -100,9 +102,8 @@
     width: 35px;
     height: 35px;
     position: absolute;
-    right: 10%;
-    top: 30%;
-    
+    right: 20px;
+    top: 20px;
 }
 
 #endgame-page{
