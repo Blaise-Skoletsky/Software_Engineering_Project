@@ -118,12 +118,12 @@ function findCountry(arr, picked){
 
 
 function findContinent(country, picked){
-    african_countries = ["Algeria", "Angola", "Benin", "Botswana", "Burkina Faso", "Burundi", "Cabo Verde", "Cameroon", "Central African Republic", "Chad", "Comoros", "Congo", "Djibouti", "Egypt", "Equatorial Guinea", "Eritrea", "Eswatini", "Ethiopia", "Gabon", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Ivory Coast", "Kenya", "Lesotho", "Liberia", "Libya", "Madagascar", "Malawi", "Mali", "Mauritania", "Mauritius", "Morocco", "Mozambique", "Namibia", "Niger", "Nigeria", "Rwanda", "Sao Tome and Principe", "Senegal", "Seychelles", "Sierra Leone", "Somalia", "South Africa", "South Sudan", "Sudan", "Tanzania", "Togo", "Tunisia", "Uganda", "Zambia", "Zimbabwe"]
-    asian_countries = ["Afghanistan", "Bahrain", "Bangladesh", "Bhutan", "Brunei", "Cambodia", "China", "Cyprus", "Georgia", "India", "Indonesia", "Iran", "Iraq", "Israel", "Japan", "Jordan", "Kazakhstan", "Kuwait", "Kyrgyzstan", "Laos", "Lebanon", "Malaysia", "Maldives", "Mongolia", "Myanmar", "Nepal", "North Korea", "Oman", "Pakistan", "Palestine", "Philippines", "Qatar", "Saudi Arabia", "Singapore", "South Korea", "Sri Lanka", "Syria", "Taiwan", "Tajikistan", "Thailand", "Timor-Leste", "Turkey", "Turkmenistan", "United Arab Emirates", "Uzbekistan", "Vietnam", "Yemen"]
-    european_countries = ["Albania", "Andorra", "Austria", "Belarus", "Belgium", "Bosnia and Herzegovina", "Bulgaria", "Croatia", "Cyprus", "Czech Republic", "Denmark", "Estonia", "Finland", "France", "Germany", "Greece", "Hungary", "Iceland", "Ireland", "Italy", "Kosovo", "Latvia", "Liechtenstein", "Lithuania", "Luxembourg", "Malta", "Moldova", "Monaco", "Montenegro", "Netherlands", "North Macedonia", "Norway", "Poland", "Portugal", "Romania", "Russia", "San Marino", "Serbia", "Slovakia", "Slovenia", "Spain", "Sweden", "Switzerland", "Ukraine", "England", "Vatican City"]
-    north_american_countries = ["Antigua and Barbuda", "Bahamas", "Barbados", "Belize", "Canada", "Costa Rica", "Cuba", "Dominica", "Dominican Republic", "El Salvador", "Grenada", "Guatemala", "Haiti", "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Trinidad and Tobago", "United States"]
-    oceania_countries = ["Australia", "Fiji", "Kiribati", "Marshall Islands", "Micronesia", "Nauru", "New Zealand", "Palau", "Papua New Guinea", "Samoa", "Solomon Islands", "Tonga", "Tuvalu", "Vanuatu"]
-    south_american_countries = ["Argentina", "Bolivia", "Brazil", "Chile", "Colombia", "Ecuador", "Guyana", "Paraguay", "Peru", "Suriname", "Uruguay", "Venezuela"]
+    asian_countries = ["Japan", "South Korea", "Saudi Arabia", "Iran", "Qatar", "China", "Iraq", "United Arab Emirates", "Syria"]
+    european_countries = ["France", "Norway", "Belgium", "England", "Poland", "Portugal", "Spain", "Germany", "Netherlands", "Croatia"]
+    african_countries = ["Senegal", "Nigeria", "Egypt", "Algeria", "Morocco", "Tunisia", "Cameroon", "Ghana", "Ivory Coast", "Mali"]
+    north_american_countries = ["United States", "Mexico", "Canada", "Costa Rica", "Jamaica", "Honduras", "Panama", "El Salvador", "Trinidad and Tobago", "Haiti"]
+    south_american_countries = ["Argentina", "Brazil", "Uruguay", "Colombia", "Chile", "Ecuador", "Paraguay", "Peru", "Venezuela", "Bolivia"]
+    oceania_countries = ["Australia", "New Zealand", "Fiji", "Papua New Guinea", "Solomon Islands", "Vanuatu", "Samoa", "Tonga", "Kiribati", "Micronesia"]
 
     for (let i = 0; i < european_countries.length; i++){
         if (european_countries[i].toLowerCase() === country.toLowerCase()){
@@ -258,3 +258,13 @@ resbutton.addEventListener('click', function(){
 
 
 })
+
+
+
+var english_premier_league = ['Arsenal', 'Chelsea', 'Liverpool', 'Manchester City', 'Manchester United', 'Tottenham Hotspur', 'Newcastle United', 'Aston Villa']
+var spanish_la_liga = ['Barcelona', 'Real Madrid', 'Atletico Madrid', 'Sevilla', 'Valencia', 'Real Betis', 'Villareal CF', 'RC Celta']
+var german_bundesliga = ['Bayern Munich', 'Borussia Dortmund', 'RB Leipzig', 'Leverkusen', 'Schalke 04', 'Wolfsburg']
+var italian_serie_a = ['Juventus', 'Inter', 'Milan', 'Roma', 'Napoli', 'Lazio', 'Sassulo']
+var french_ligue_1 = ['Paris Saint-Germain', 'Lille', 'Lyon', 'Marseille', 'Monaco', 'Stade Rennais']
+var saudi_pro_league = ['Al Ahli', 'Al Hilal', 'Al Nassr', 'Al Ittihad']
+var MLS = ['Inter Miami']
