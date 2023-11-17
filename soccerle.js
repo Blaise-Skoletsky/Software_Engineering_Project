@@ -11,17 +11,101 @@ var playerGuess = 0
 
 
 class PlayerInfo {
-    constructor(name, country, club, position){
+    constructor(name, country, club, rating){
         this.name = name
         this.country = country
         this.club = club
-        this.position = position
+        this.rating = rating
     }
 }
 
-player1= new PlayerInfo('Harry Kane', 'England', 'Bayern Munich', 'Striker')
+player1= new PlayerInfo('Harry Kane', 'England', 'Bayern Munich', 90)
+
+function findCountry(arr, picked){
+
+    for (var i = 0; i < arr.length; i++){
+        if (arr[i].toLowerCase() === picked.toLowerCase()){
+            return true
+        }
+    }
+    return false
+
+}
 
 
+function findClub(country, picked){
+
+    var english_premier_league = ['Arsenal', 'Chelsea', 'Liverpool', 'Manchester City', 'Manchester United', 'Tottenham Hotspur', 'Newcastle United', 'Aston Villa']
+    var spanish_la_liga = ['Barcelona', 'Real Madrid', 'Atletico Madrid', 'Sevilla', 'Valencia', 'Real Betis', 'Villareal CF', 'RC Celta']
+    var german_bundesliga = ['Bayern Munich', 'Borussia Dortmund', 'RB Leipzig', 'Leverkusen', 'Schalke 04', 'Wolfsburg', 'Frankfurt']
+    var italian_serie_a = ['Juventus', 'Inter', 'Milan', 'Roma', 'Napoli', 'Lazio', 'Sassuolo']
+    var french_ligue_1 = ['Paris Saint-Germain', 'Lille', 'Lyon', 'Marseille', 'Monaco', 'Stade Rennais']
+    var saudi_pro_league = ['Al Ahli', 'Al Hilal', 'Al Nassr', 'Al Ittihad']
+    var MLS = ['Inter Miami']
+    
+
+    for (let i = 0; i < english_premier_league.length; i++){
+        if (english_premier_league[i].toLowerCase() === country.toLowerCase()){
+            
+            if (findCountry(english_premier_league, picked)){
+                return true
+            }
+        }
+    }
+    for (let i = 0; i < spanish_la_liga.length; i++){
+        if (spanish_la_liga[i].toLowerCase() === country.toLowerCase()){
+            
+            if (findCountry(spanish_la_liga, picked)){
+                return true
+            }
+        }
+    }
+    for (let i = 0; i < german_bundesliga.length; i++){
+        if (german_bundesliga[i].toLowerCase() === country.toLowerCase()){
+            
+            if (findCountry(german_bundesliga, picked)){
+                return true
+            }
+        }
+    }
+    for (let i = 0; i < italian_serie_a.length; i++){
+        if (italian_serie_a[i].toLowerCase() === country.toLowerCase()){
+            
+            if (findCountry(italian_serie_a, picked)){
+                return true
+            }
+        }
+    }
+    for (let i = 0; i < french_ligue_1.length; i++){
+        if (french_ligue_1[i].toLowerCase() === country.toLowerCase()){
+            
+            if (findCountry(french_ligue_1, picked)){
+                return true
+            }
+        }
+    }
+    for (let i = 0; i < saudi_pro_league.length; i++){
+        if (saudi_pro_league[i].toLowerCase() === country.toLowerCase()){
+            
+            if (findCountry(saudi_pro_league, picked)){
+                return true
+            }
+        }
+    }
+    for (let i = 0; i < MLS; i++){
+        if (MLS[i].toLowerCase() === country.toLowerCase()){
+            
+            if (findCountry(MLS, picked)){
+                return true
+            }
+        }
+    }
+
+
+    return false
+
+
+}
 
 inputPlayer.addEventListener("keyup", function (event){
     var boxNum = document.getElementById('guess-num')
@@ -58,24 +142,41 @@ inputClub.addEventListener("keyup", function(event){
     if(event.keyCode != 13){
         return
     }
+    let boxes = document.getElementsByClassName('clubtext')
+    let boxVar = -1
 
     for (var i = 0; i < clubboxArr.length; i++){
         if (clubboxArr[i].style.backgroundColor === 'green' || clubboxArr[i].style.backgroundColor === 'red' || clubboxArr[i].style.backgroundColor === 'yellow'){
             continue
         }
-        
-        //DO stuff to change the thing now based on the name.
-        
-        if (inputClub.value === 'tottenham'){
+
+        if(inputClub.value.toLowerCase() === player1.club.toLowerCase()){
             clubboxArr[i].style.backgroundColor = 'green'
+            boxes[i].textContent = inputClub.value
+            boxVar = i
+            break
+        } else if (findClub(player1.club, inputClub.value)){
+            clubboxArr[i].style.backgroundColor = 'yellow'
+            boxes[i].textContent = inputClub.value
+            boxVar = i
             break
         }
         
+     
 
+    }
+
+    if (boxVar === -1){
+        for (let i = 0; i < clubboxArr.length; i++) {
+            if (clubboxArr[i].style.backgroundColor !== 'green' && clubboxArr[i].style.backgroundColor !== 'red' && clubboxArr[i].style.backgroundColor !== 'yellow') {
+                clubboxArr[i].style.backgroundColor = 'red'
+                boxes[i].textContent = inputClub.value
+                break
+            }
+        }
     }
     
     inputClub.value = ''
-
 
 })
 
@@ -84,19 +185,36 @@ inputPosition.addEventListener("keyup", function(event){
         return
     }
 
+    if (isNaN(inputPosition.value)){
+        inputPosition.value = ''
+        return
+    }
+    let boxes = document.getElementsByClassName('ratingtext')
+
     for (var i = 0; i < positionboxArr.length; i++){
         if (positionboxArr[i].style.backgroundColor === 'green' || positionboxArr[i].style.backgroundColor === 'red' || positionboxArr[i].style.backgroundColor === 'yellow'){
             continue
         }
         
-        //DO stuff to change the thing now based on the name.
 
-        
-        
-        if (inputPosition.value.toLowerCase() === player1.position.toLowerCase()){
+        let diff = player1.rating - parseInt(inputPosition.value)
+        if (diff === 0){
             positionboxArr[i].style.backgroundColor = 'green'
+            boxes[i].textContent = inputPosition.value
             break
         }
+        else if (diff === -1 || diff === 1){
+            positionboxArr[i].style.backgroundColor = 'yellow'
+            boxes[i].textContent = inputPosition.value
+            break
+        } else{
+            positionboxArr[i].style.backgroundColor = 'red'
+            boxes[i].textContent = inputPosition.value
+            break
+        }
+        
+        
+
         
 
     }
@@ -105,16 +223,6 @@ inputPosition.addEventListener("keyup", function(event){
 
 
 })
-function findCountry(arr, picked){
-
-    for (var i = 0; i < arr.length; i++){
-        if (arr[i].toLowerCase() === picked.toLowerCase()){
-            return true
-        }
-    }
-    return false
-
-}
 
 
 function findContinent(country, picked){
@@ -131,6 +239,7 @@ function findContinent(country, picked){
             if (findCountry(european_countries, picked)){
                 return true
             }
+           
         }
     }
     for (let i = 0; i < african_countries.length; i++){
@@ -185,7 +294,7 @@ inputCountry.addEventListener("keyup", function(event){
     if(event.keyCode != 13){
         return
     }
-
+    let boxes = document.getElementsByClassName('countrytext')
     let boxVar = -1
 
     for (let i = 0; i < countryboxArr.length; i++){
@@ -196,9 +305,11 @@ inputCountry.addEventListener("keyup", function(event){
         if (inputCountry.value.toLowerCase() === player1.country.toLowerCase()){
             countryboxArr[i].style.backgroundColor = 'green'
             boxVar = i
+            boxes[i].textContent = inputCountry.value
             break
         } else if (findContinent(player1.country, inputCountry.value)){
             countryboxArr[i].style.backgroundColor = 'yellow'
+            boxes[i].textContent = inputCountry.value
             boxVar = i
             break
         }
@@ -209,6 +320,7 @@ inputCountry.addEventListener("keyup", function(event){
         for (let i = 0; i < countryboxArr.length; i++) {
             if (countryboxArr[i].style.backgroundColor !== 'green' && countryboxArr[i].style.backgroundColor !== 'red' && countryboxArr[i].style.backgroundColor !== 'yellow') {
                 countryboxArr[i].style.backgroundColor = 'red'
+                boxes[i].textContent = inputCountry.value
                 break
             }
         }
