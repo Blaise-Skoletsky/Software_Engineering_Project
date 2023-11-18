@@ -1,14 +1,25 @@
-import random as rand
-
+import zmq
+import random
 
 verbs = ["Run", "Jump", "Sing", "Dance", "Laugh", "Cry", "Sleep", "Eat", "Talk", "Write",
-"Read", "Cook", "Swim", "Fly", "Drive", "Hug", "Kiss", "Climb", "Surf", "Paint",
-"Draw", "Play", "Watch", "Listen", "Build", "Solve", "Create", "Explore", "Imagine",
-"Discover", "Think", "Speak", "Whisper", "Shout", "Kick", "Punch", "Skip", "Hop",
-"Blink", "Crawl", "Cough", "Sneeze", "Stretch", "Breathe", "Squint"]
+         "Read", "Cook", "Swim", "Fly", "Drive", "Hug", "Kiss", "Climb", "Surf", "Paint",
+         "Draw", "Play", "Watch", "Listen", "Build", "Solve", "Create", "Explore", "Imagine",
+         "Discover", "Think", "Speak", "Whisper", "Shout", "Kick", "Punch", "Skip", "Hop",
+         "Blink", "Crawl", "Cough", "Sneeze", "Stretch", "Breathe", "Squint"]
 
-# get chatgpt to generate lists of words needed. 
+def randomizer():
+    return random.choice(verbs)
 
-def randomizer(type):
+context = zmq.Context()
+socket = context.socket(zmq.REP)
+socket.bind("tcp://*:5555")
 
-    return verbs[rand.randint(0, len(verbs)-1)]
+while True:
+    # Wait for next request from client
+    message = socket.recv()
+    print("Received request: %s" % message)
+
+    # Call randomizer and send the result back to the client
+    result = randomizer()
+    socket.send_string(result)
+    print("Sent response: %s" % result)

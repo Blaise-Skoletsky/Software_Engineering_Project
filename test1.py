@@ -1,17 +1,15 @@
-
-import time
 import zmq
 
 context = zmq.Context()
-socket = context.socket(zmq.REP)
-socket.bind("tcp://*:5555")
+socket = context.socket(zmq.REQ)
+socket.connect("tcp://localhost:5555")
+
+
+socket.send(b"Give me a random verb")
 
 while True:
-    #  Wait for next request from client
-    message = socket.recv()
-    print(f"Received request: {message}")
-
-    #  Do some 'work'
-    time.sleep(1)
-
     
+
+    # Receive the response from the server
+    response = socket.recv_string()
+    print("Received response from server: %s" % response)
