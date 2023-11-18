@@ -5,7 +5,7 @@ socket = context.socket(zmq.REQ)
 socket.connect("tcp://localhost:5555")
 
 
-socket.send(b"verb")
+socket.send("verb")
 
 while True:
     
