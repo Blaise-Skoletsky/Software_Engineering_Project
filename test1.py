@@ -17,3 +17,5 @@ while True:
     break
 
 
+socket.close()
+context.term()

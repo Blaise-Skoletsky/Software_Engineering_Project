@@ -133,3 +133,5 @@ while True:
     result = randomizer(message.decode('utf-8'))
     socket.send_string(result)
     print("Sent response: %s" % result)
+
+
