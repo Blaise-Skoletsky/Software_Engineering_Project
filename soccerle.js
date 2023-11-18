@@ -355,11 +355,16 @@ removebutton.addEventListener('click', function(){
 resbutton = document.getElementById('restart')
 resbutton.addEventListener('click', function(){
     playerGuess = 0
-
+    let boxes1 = document.getElementsByClassName('ratingtext')
+    let boxes2 = document.getElementsByClassName('clubtext')
+    let boxes3 = document.getElementsByClassName('countrytext')
     for (let i = 0; i < clubboxArr.length; i++){
         clubboxArr[i].style.backgroundColor = 'white'
         positionboxArr[i].style.backgroundColor = 'white'
         countryboxArr[i].style.backgroundColor = 'white'
+        boxes1.textContent = ''
+        boxes2.textContent = ''
+        boxes3.textContent = ''
     }
     var boxNum = document.getElementById('guess-num')
     boxNum.textContent = 3
