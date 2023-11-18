@@ -362,9 +362,9 @@ resbutton.addEventListener('click', function(){
         clubboxArr[i].style.backgroundColor = 'white'
         positionboxArr[i].style.backgroundColor = 'white'
         countryboxArr[i].style.backgroundColor = 'white'
-        boxes1.textContent = ''
-        boxes2.textContent = ''
-        boxes3.textContent = ''
+        boxes1[i].textContent = ' '
+        boxes2[i].textContent = ' '
+        boxes3[i].textContent = ' '
     }
     var boxNum = document.getElementById('guess-num')
     boxNum.textContent = 3
