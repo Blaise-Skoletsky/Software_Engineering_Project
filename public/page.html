@@ -5,7 +5,7 @@
        <title>Soccerle</title>
         <link rel="stylesheet" href="style.css">
         <script src="soccerle.js" charset="utf-8" defer></script>
-
+        <script>"/socket.io/socket.io.js"</script>
    </head>
    <body>
        <header>
@@ -33,8 +33,10 @@
                         </div>
 
                         <div class="input-area">
-                            <input type="text" id="club-bar"><br>
+                            <select id="club-bar"></select>
+                    
                             <label for="club-bar" class="labell">Enter a Club</label>
+        
                         </div>
                     </div>
 
@@ -66,7 +68,8 @@
                         </div>
 
                         <div class="input-area">
-                            <input type="text" id="country-bar"><br>
+                            <!--<input type="text" id="country-bar"><br>-->
+                            <select id="country-bar"></select>
                             <label for="country-bar" class="labell">Enter a Nation</label>
                         </div>
 
