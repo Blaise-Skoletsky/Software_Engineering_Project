@@ -1,10 +1,10 @@
 import pandas as pd
 import random
 import time
-import zmq
+import requests
+import json
 
 def get_player_info():
-
     randNum = random.randint(0, 90)
     df = pd.read_csv("all_players.csv")
 
@@ -19,22 +19,14 @@ def get_player_info():
         "club": playerClub,
         "nationality": playerNationality,
         "rating": playerOvrRating
-        }
-
+    }
     return str(playerInfo)
 
-
-context = zmq.Context()
-socket = context.socket(zmq.REP)
-socket.bind("tcp://*:5555")
-
+url = "http://localhost:3000"
 while True:
-    #  Wait for next request from client
-    message = socket.recv()
-    print(f"Received request: {message}")
 
-    #  Do some 'work'
     time.sleep(1)
-
-    #  Send reply back to client
-    socket.send_string(get_player_info())
+    data = {'playerInfo': get_player_info()}
+    headers = {'Content-Type': 'application/json'}
+    r = requests.post(url, data=json.dumps(data), headers=headers)
+    

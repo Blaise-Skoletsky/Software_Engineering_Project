@@ -1,3 +1,6 @@
+const socket = io('http://localhost:3000')
+
+
 
 var inputPlayer = document.getElementById("player-box")
 var inputClub = document.getElementById("club-bar")
@@ -7,8 +10,34 @@ var clubboxArr = document.getElementsByClassName('clubox')
 var positionboxArr = document.getElementsByClassName('posbox')
 var countryboxArr = document.getElementsByClassName('coubox')
 
-//Dropdown rendering:
+class PlayerInfo {
+    constructor(name, country, club, rating){
+        this.name = name
+        this.country = country
+        this.club = club
+        this.rating = rating
+    }
+}
 
+var player1 = new PlayerInfo('Harry Kane', 'England', 'Bayern Munich', 90)
+
+
+socket.emit('get_player_request')
+console.log('2')
+socket.on('recieve_player', function(data){
+
+    var parsedData = eval('(' + data + ')')
+    player1.club = parsedData.club
+    player1.name = parsedData.name
+    player1.country = parsedData.nationality
+    player1.rating = parsedData.rating
+
+    console.log(data)
+   
+})
+
+
+//Dropdown rendering:
 var asian_countries = ["Japan", "South Korea", "Saudi Arabia", "Iran", "Qatar", "China", "Iraq", "United Arab Emirates", "Syria"]
 var european_countries = ["France", "Norway", "Belgium", "England", "Poland", "Portugal", "Spain", "Germany", "Netherlands", "Croatia"]
 var african_countries = ["Senegal", "Nigeria", "Egypt", "Algeria", "Morocco", "Tunisia", "Cameroon", "Ghana", "Ivory Coast", "Mali"]
@@ -110,18 +139,6 @@ for (let i = 0; i < oceania_countries.length; i++){
 
 
 var playerGuess = 0
-
-
-class PlayerInfo {
-    constructor(name, country, club, rating){
-        this.name = name
-        this.country = country
-        this.club = club
-        this.rating = rating
-    }
-}
-
-player1= new PlayerInfo('Harry Kane', 'England', 'Bayern Munich', 90)
 
 function findCountry(arr, picked){
 
@@ -439,7 +456,8 @@ removebutton.addEventListener('click', function(){
 })
 
 
-resbutton = document.getElementById('restart')
+var resbutton = document.getElementById('restart')
+
 resbutton.addEventListener('click', function(){
     playerGuess = 0
     let boxes1 = document.getElementsByClassName('ratingtext')
@@ -458,6 +476,8 @@ resbutton.addEventListener('click', function(){
 
     var endgame = document.getElementById('endgame-page')
     endgame.classList.toggle('hidden')
+
+    socket.emit('get_player_request')
 
 
 
