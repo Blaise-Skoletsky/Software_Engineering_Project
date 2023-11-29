@@ -230,6 +230,7 @@ inputPlayer.addEventListener("keyup", function (event){
         if (playerGuess.toLowerCase() === player1.name.toLowerCase()){
             endgame.classList.toggle('hidden')
             document.getElementById('endmessage').textContent = 'You Win!'
+            document.getElementById('whatwas').textContent = 'Player was: ' + player1.name
             return
         }
 
@@ -238,6 +239,7 @@ inputPlayer.addEventListener("keyup", function (event){
     
             endgame.classList.toggle('hidden')
             document.getElementById('endmessage').textContent = 'You Lose!'
+            document.getElementById('whatwas').textContent = 'Player was: ' + player1.name
             return
             
         

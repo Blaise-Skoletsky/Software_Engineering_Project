@@ -32,8 +32,7 @@ io.on('connection', socket => {
 
     socket.on('get_player_request', () => {
         
-        
-        //Should generate another request here from the python!
+        //Player info is constnatly, changing, thats why this works. 
 
         io.to(socket.id).emit('recieve_player', playerInfo);
     });
@@ -47,7 +46,7 @@ io.on('connection', socket => {
 
 app.post('/', function(req, res){
     playerInfo = req.body.playerInfo
-    console.log(playerInfo)
+    //console.log(playerInfo)
     res.status(200).send('success')
 })
 
