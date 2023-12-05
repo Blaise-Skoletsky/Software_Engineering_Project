@@ -21,9 +21,10 @@ class PlayerInfo {
 
 var player1 = new PlayerInfo('Harry Kane', 'England', 'Bayern Munich', 90)
 
-
+//Get first player info!
 socket.emit('get_player_request')
-console.log('2')
+
+//When a player is requested, server will send recive_player, which is turned into the class PlayerInfo!
 socket.on('recieve_player', function(data){
 
     var parsedData = eval('(' + data + ')')
@@ -486,11 +487,3 @@ resbutton.addEventListener('click', function(){
 })
 
 
-
-var english_premier_league = ['Arsenal', 'Chelsea', 'Liverpool', 'Manchester City', 'Manchester United', 'Tottenham Hotspur', 'Newcastle United', 'Aston Villa']
-var spanish_la_liga = ['Barcelona', 'Real Madrid', 'Atletico Madrid', 'Sevilla', 'Valencia', 'Real Betis', 'Villareal CF', 'RC Celta']
-var german_bundesliga = ['Bayern Munich', 'Borussia Dortmund', 'RB Leipzig', 'Leverkusen', 'Schalke 04', 'Wolfsburg', 'Frankfurt']
-var italian_serie_a = ['Juventus', 'Inter', 'Milan', 'Roma', 'Napoli', 'Lazio', 'Sassuolo']
-var french_ligue_1 = ['Paris Saint-Germain', 'Lille', 'Lyon', 'Marseille', 'Monaco', 'Stade Rennais']
-var saudi_pro_league = ['Al Ahli', 'Al Hilal', 'Al Nassr', 'Al Ittihad']
-var MLS = ['Inter Miami']
